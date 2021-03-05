@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -35,4 +36,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a{
+  margin: 3px;
+}
+
+label{
+  display: block;
+}
+
+.all-pages{
+  text-align: center;
+}
+
+body{
+  background-color: rgb(184, 184, 184);
+}
+
+p{
+  border: solid 2px black;
+  cursor: pointer;
+  
 }
