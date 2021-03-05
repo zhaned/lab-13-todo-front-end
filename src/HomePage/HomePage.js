@@ -4,7 +4,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        HomePage
+        Welcome to your Todo List Maker!
       </div>
     )
   }

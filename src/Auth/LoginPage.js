@@ -33,7 +33,7 @@ export default class LoginPage extends Component {
             password:
             <input value={this.state.password} onChange={this.handlePassword} />
           </label>
-          <button>Create</button>
+          <button>Login</button>
         </form>
       </div>
     )

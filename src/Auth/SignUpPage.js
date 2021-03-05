@@ -17,7 +17,6 @@ export default class SignUpPage extends Component {
     
     this.props.handleUserChange(user);
     this.props.history.push('./todos');
-
   }
 
   render() {

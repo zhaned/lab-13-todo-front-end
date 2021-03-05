@@ -11,7 +11,7 @@ import LoginPage from './Auth/LoginPage.js';
 import TodoListPage from './TodosList/TodosListPage.js';
 import Header from './Components/Header.js';
 import { getUserFromLocalStorage, setUserInLocalStorage } from './local-storage-utils.js';
-
+import PrivateRoute from './Components/PrivateRoute.js';
 
 export default class App extends Component {
   state = {
@@ -23,21 +23,31 @@ export default class App extends Component {
     setUserInLocalStorage(user);
   }
 
+  handleLogout = () => {
+    this.handleUserChange({});
+    
+  }
+
     render() {
         return (
-            <div>
+            <div className='all-pages'>
                 <Router>
-                  <Header />
+                  <Header 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}/>
                     <Switch>
                         <Route 
                             path="/" 
                             exact
                             render={(routerProps) => <HomePage {...routerProps} />} 
                         />
-                        <Route 
+                        <PrivateRoute 
                             path="/todos" 
                             exact
-                            render={(routerProps) => <TodoListPage {...routerProps} />} 
+                            token={this.state.user && this.state.user.token}
+                            render={(routerProps) => <TodoListPage 
+                              user={this.state.user}
+                              {...routerProps} />} 
                         />
                         <Route 
                             path="/signup" 
